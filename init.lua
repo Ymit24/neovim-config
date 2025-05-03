@@ -66,9 +66,13 @@ require("leap")
 
 map_combo({'v', 'V', 'x', 's', 'S', 'n'}, 'M','<Plug>(leap)', { desc= "Open Oilsss" })
 
+add({source='neovim/nvim-lspconfig'})
+
 add({source="williamboman/mason.nvim"})
 require("mason").setup()
 
+vim.lsp.enable("rubocop")
+vim.lsp.enable("ruby-lsp")
 
 -- MINI Modules
 local miniclue = require('mini.clue')
