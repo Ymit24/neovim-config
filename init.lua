@@ -25,12 +25,12 @@ opt.autowrite = true -- Enable auto write
 -- integration works automatically. Requires Neovim >= 0.10.0
 opt.clipboard = 'unnamedplus'
 opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 2                                    -- Hide * markup for bold and italic, but not markers with substitutions
-opt.confirm = true                                      -- Confirm to save changes before exiting modified buffer
-opt.cursorline = true                                   -- Enable highlighting of the current line
-opt.expandtab = true                                    -- Use spaces instead of tabs
-opt.list = true                                         -- Show some invisible characters (tabs...
-opt.number = true                                       -- Print line number
+opt.conceallevel = 2  -- Hide * markup for bold and italic, but not markers with substitutions
+opt.confirm = true    -- Confirm to save changes before exiting modified buffer
+opt.cursorline = true -- Enable highlighting of the current line
+opt.expandtab = true  -- Use spaces instead of tabs
+opt.list = true       -- Show some invisible characters (tabs...
+opt.number = true     -- Print line number
 opt.relativenumber = true
 opt.showmode = false
 opt.signcolumn = "yes"
@@ -84,6 +84,8 @@ require('which-key').setup({
         }
 })
 
+add({ source = "nvim-treesitter/nvim-treesitter" })
+
 -- LSP
 
 add({ source = 'neovim/nvim-lspconfig' })
@@ -98,6 +100,9 @@ vim.lsp.config("ruby-lsp", {})
 vim.lsp.enable('lua_ls')
 
 map("n", "<leader>fm", vim.lsp.buf.format, { desc = "format buffer" })
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "code action" })
+map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "code rename" })
+map("n", "<leader>gd", vim.lsp.buf.definition, { desc = "goto definition" })
 
 -- MINI Modules
 require('mini.completion').setup()
