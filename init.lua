@@ -40,7 +40,7 @@ opt.splitbelow = true  -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true  -- Put new windows right of current
 opt.tabstop = 2
-shiftwidth = 2
+opt.shiftwidth = 2
 tabstop = 4
 opt.smoothscroll = true
 opt.winminwidth = 5 -- Minimum window width
@@ -98,6 +98,7 @@ vim.lsp.config("rubocop", {})
 vim.lsp.enable("ruby-lsp")
 vim.lsp.config("ruby-lsp", {})
 vim.lsp.enable('lua_ls')
+vim.lsp.enable('dartls')
 
 map("n", "<leader>fm", vim.lsp.buf.format, { desc = "format buffer" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "code action" })
