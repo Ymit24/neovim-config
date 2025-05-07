@@ -41,7 +41,6 @@ opt.splitkeep = "screen"
 opt.splitright = true  -- Put new windows right of current
 opt.tabstop = 2
 opt.shiftwidth = 2
-tabstop = 4
 opt.smoothscroll = true
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false
@@ -49,6 +48,8 @@ vim.opt.swapfile = false
 vim.g.markdown_recommended_style = 0
 
 vim.cmd([[colorscheme wildcharm]])
+
+vim.api.nvim_set_hl(0, "CursorLine", {background='#553119'})
 
 -- Set up 'mini.deps' (customize to your liking)
 require('mini.deps').setup({ path = { package = path_package } })
@@ -99,6 +100,13 @@ vim.lsp.enable("ruby-lsp")
 vim.lsp.config("ruby-lsp", {})
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('dartls')
+vim.lsp.enable('rust_analyzer')
+vim.lsp.config('rust_analyzer', {
+  -- Server-specific settings. See `:help lsp-quickstart`
+  settings = {
+    ['rust-analyzer'] = {},
+  },
+})
 
 map("n", "<leader>fm", vim.lsp.buf.format, { desc = "format buffer" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "code action" })
