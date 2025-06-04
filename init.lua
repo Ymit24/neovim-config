@@ -102,7 +102,7 @@ map("n", "<leader>3", function() harpoon:list():select(3) end, { desc = "Harpoon
 map("n", "<leader>4", function() harpoon:list():select(4) end, { desc = "Harpoon Goto 4" })
 map("n", "<leader>5", function() harpoon:list():select(5) end, { desc = "Harpoon Goto 5" })
 
-add({source = "folke/zen-mode.nvim"})
+add({ source = "folke/zen-mode.nvim" })
 
 -- LSP
 
@@ -127,7 +127,7 @@ vim.lsp.config('rust_analyzer', {
 })
 
 map("n", "<leader>fm", vim.lsp.buf.format, { desc = "format buffer" })
-map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "code action" })
+map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "code action" })
 map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "code rename" })
 map("n", "<leader>gd", vim.lsp.buf.definition, { desc = "goto definition" })
 
@@ -135,14 +135,14 @@ map("n", "<leader>gd", vim.lsp.buf.definition, { desc = "goto definition" })
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.shadow = {
   install_info = {
-    url = "~/dev/luna/tree-sitter-shadow", -- local path or git repo
-    files = {"src/parser.c"}, -- note that some parsers also require src/scanner.c or src/scanner.cc
+    url = "~/dev/luna/tree-sitter-shadow",  -- local path or git repo
+    files = { "src/parser.c" },             -- note that some parsers also require src/scanner.c or src/scanner.cc
     -- optional entries:
-    branch = "main", -- default branch in case of git repo if different from master
-    generate_requires_npm = false, -- if stand-alone parser without npm dependencies
+    branch = "main",                        -- default branch in case of git repo if different from master
+    generate_requires_npm = false,          -- if stand-alone parser without npm dependencies
     requires_generate_from_grammar = false, -- if folder contains pre-generated src/parser.c
   },
-  filetype = "shd", -- if filetype does not match the parser name
+  filetype = "shd",                         -- if filetype does not match the parser name
 }
 
 -- In your init.lua, after adding nvim-treesitter
@@ -170,7 +170,7 @@ require("nvim-treesitter.configs").setup({
 
   highlight = {
     enable = true, -- !!! Crucial: Enable highlighting !!!
-    disable = {}, -- A list of language names to attach highlighting to.
+    disable = {},  -- A list of language names to attach highlighting to.
     -- Set this to `true` for all Lua files, or a list of languages
     additional_vim_regex_highlighting = false,
   },
@@ -192,5 +192,3 @@ require('mini.diff').setup()
 require('mini.icons').setup()
 require('mini.indentscope').setup()
 require('mini.statusline').setup()
-
-
